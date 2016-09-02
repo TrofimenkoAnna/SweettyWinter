@@ -12,8 +12,8 @@ public class Enemy_move : MonoBehaviour {
 
 	private float damage;
 
-	public float damage_cube = 30;
-	public static float m_damage_cube = 30;
+	public float damage_cube = 10;
+	public static float m_damage_cube = 10;
 
 	// Use this for initialization
 	void Start () {
@@ -28,8 +28,12 @@ public class Enemy_move : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if (currentHealth > 0)
+		//if (currentHealth > 0) {
 			agent.SetDestination (hero.position);
+		if (agent.remainingDistance <= agent.stoppingDistance + 0.1f) {
+			Player_health.currentHealth -= m_damage_cube; 
+		}
+		//}
 
 		if (currentHealth <= 0) {
 			Renderer rend = gameObject.GetComponent<Renderer> ();

@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Player_health : MonoBehaviour {
 
-	public float maxHealth = 100;
-	public float currentHealth = 100;
+	public float maxHealth = 1000;
+	public static float currentHealth = 1000;
 	private float damage;
 
 	private GameObject enemy;
@@ -13,23 +13,29 @@ public class Player_health : MonoBehaviour {
 	public Texture2D healthTexture;
 	Rect position;
 
+	[SerializeField] private MouseLook m_MouseLook;
+
 	// Use this for initialization
 	void Start () {
-		
-		position = new Rect(10, 10, healthTexture.width, healthTexture.height);
+		position = new Rect(10, 10, 200, healthTexture.height);
 		damage = Enemy_move.m_damage_cube;
 		print (damage);
 
 		enemy = GameObject.Find("enemy");
-		//agent = enemy.GetComponent<NavMeshAgent> ();
-		//if (agent.remainingDistance < agent.stoppingDistance) {
-			//currentHealth -= damage;
-		//}
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		position = new Rect(10, 10, currentHealth / 5f, healthTexture.height);
+		if (currentHealth <= 0) {
+			currentHealth = 0;
+			position = new Rect(10, 10, 0, healthTexture.height);
+			m_MouseLook.SetCursorLock (false);
+			FPS fps = gameObject.GetComponent<FPS> ();
+			fps.enabled = false;
+			GameObject.Find ("Gun").GetComponent<Shoot> ().enabled = false;
+		}
 	}
 
 	void OnGUI()

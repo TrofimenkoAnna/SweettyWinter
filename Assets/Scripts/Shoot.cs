@@ -30,6 +30,7 @@ public class Shoot : MonoBehaviour {
 		prefabInstance = (Transform) Instantiate(m_Prefab, GameObject.Find("bullet_point").transform.position, Quaternion.identity);
 		Rigidbody rb = prefabInstance.GetComponent<Rigidbody>();
 		rb.AddForce(directionRay * forceSpeed);
+
 		//Rigidbody rb_bullet = GameObject.Find("bullet").GetComponent<Rigidbody>();
 
 		//acceleration = (rb_bullet.velocity - lastVelocity) / Time.deltaTime;

@@ -3,11 +3,12 @@ using System.Collections;
 
 public class DestroyObj : MonoBehaviour {
 
-	public float f;
+	public static float f;
 	
 	void OnCollisionEnter(Collision collision)
 	{
-		if (collision.collider)
-				Destroy (gameObject, 10);
+		if (collision.collider) {
+			Destroy (gameObject, 10);
+		}
 	}
 }

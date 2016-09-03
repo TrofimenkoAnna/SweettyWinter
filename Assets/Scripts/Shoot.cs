@@ -35,6 +35,7 @@ public class Shoot : MonoBehaviour {
 
 		//acceleration = (rb_bullet.velocity - lastVelocity) / Time.deltaTime;
 		//lastVelocity = rb_bullet.velocity;
+
 		//f = rb_bullet.mass * acceleration.magnitude;
 		//print (f);
 

@@ -14,9 +14,11 @@ public class Enemy_move : MonoBehaviour {
 
 	public float damage_cube = 10;
 	public static float m_damage_cube = 10;
+	public static int death = 0;
 
 	// Use this for initialization
 	void Start () {
+
 		hero = GameObject.Find ("FPSController").transform;
 
 		agent = GetComponent<NavMeshAgent> ();
@@ -36,18 +38,25 @@ public class Enemy_move : MonoBehaviour {
 		//}
 
 		if (currentHealth <= 0) {
+			currentHealth = 0;
 			Renderer rend = gameObject.GetComponent<Renderer> ();
 			rend.material.color = Color.red;
 			Destroy (gameObject, 3);
+			//InvokeRepeating ("isDead", 3, 0);
 		}
-			
 	}
 
 	void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.tag == "bullet")
+		if ((collision.gameObject.tag == "bullet") && (DestroyObj.f > 3000))
 		{
+			print (DestroyObj.f);
 			currentHealth -= damage;
 		}
+	}
+
+	public static float isDead()
+	{
+		return death++;
 	}
 }

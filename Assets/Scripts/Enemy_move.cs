@@ -16,6 +16,8 @@ public class Enemy_move : MonoBehaviour {
 	public static float m_damage_cube = 10;
 	public static int death = 0;
 
+	DestroyObj destr = new DestroyObj();
+
 	// Use this for initialization
 	void Start () {
 
@@ -25,6 +27,8 @@ public class Enemy_move : MonoBehaviour {
 
 		damage = Shoot.damage;
 		m_damage_cube = damage_cube;
+
+		//gameObject.name = "enemy";
 	}
 	
 	// Update is called once per frame
@@ -48,9 +52,9 @@ public class Enemy_move : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)
 	{
-		if ((collision.gameObject.tag == "bullet") && (DestroyObj.f > 3000))
+		if ((collision.gameObject.tag == "bullet") && (destr.f > 3000)) /* && (DestroyObj.f > 3000)*/
 		{
-			print (DestroyObj.f);
+			//print (DestroyObj.f);
 			currentHealth -= damage;
 		}
 	}

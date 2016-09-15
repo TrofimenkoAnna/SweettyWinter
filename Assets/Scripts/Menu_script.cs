@@ -4,12 +4,12 @@ using System.Collections;
 public class Menu_script : MonoBehaviour {
 
 	//player
-	public bool immortality = true;
+	public bool immortality = false;
 	public float maxHealth_player = 1000;
 	//enemy
 	public float damage_cube = 10;
 	public float maxHealth_enemy = 100;
-	public int numberOfEnemies = 10;
+	public int numberOfEnemies = 2;
 	//gun
 	public float forceSpeed = 3000;
 	public float damage_gun = 40;

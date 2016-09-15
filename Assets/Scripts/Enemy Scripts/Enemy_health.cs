@@ -4,6 +4,8 @@ using System.Collections;
 public class Enemy_health : MonoBehaviour {
 	
 	public float currentHealth;
+	public static int death = 0;
+	public static int death_wave = 0;
 
 	void OnStart()
 	{
@@ -18,8 +20,14 @@ public class Enemy_health : MonoBehaviour {
 			Renderer rend = gameObject.GetComponent<Renderer> ();
 			rend.material.color = Color.red;
 			Destroy (gameObject, 3);
-
 		}
+	}
+
+	void OnDestroy()
+	{
+		death_wave++;
+		death++;
+		Debug.Log ("death " + death);
 	}
 
 	void OnCollisionEnter(Collision collision)

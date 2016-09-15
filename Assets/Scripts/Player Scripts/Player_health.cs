@@ -40,7 +40,7 @@ public class Player_health : MonoBehaviour {
 	{
 		GUI.DrawTexture(position, healthTexture);
 		guiStyle.fontSize = 20; 
-		//GUI.Label (position_label, death + "/" + Spawn_cubes.m_numberOfEnemies, guiStyle);
+		GUI.Label (position_label, Enemy_health.death + "", guiStyle);
 	}
 
 	void healthLineSize()

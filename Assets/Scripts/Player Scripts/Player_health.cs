@@ -8,7 +8,7 @@ public class Player_health : MonoBehaviour {
 	public Texture2D healthTexture;
 	Rect position; // Health line position 
 
-	[SerializeField] private MouseLook m_MouseLook;
+	private MouseLook m_MouseLook = new MouseLook();
 
 	private Rect position_label; // enemies counter position
 	private GUIStyle guiStyle = new GUIStyle();
@@ -54,13 +54,15 @@ public class Player_health : MonoBehaviour {
 
 	void damage()
 	{
+		if (GameObject.Find("enemy_cube") != null) {
 		NavMeshAgent agent = GameObject.Find("enemy_cube").GetComponent<NavMeshAgent>();
 
 		bool isImmortality = GameObject.Find ("Menu").GetComponent<Menu_script> ().immortality;
 		float damage_cube = GameObject.Find ("Menu").GetComponent<Menu_script> ().damage_cube;
 
-		if ((agent.remainingDistance <= agent.stoppingDistance + 1f) && (isImmortality == false)) {
-			currentHealth -= damage_cube;
+			if ((agent.remainingDistance <= agent.stoppingDistance + 1f) && (isImmortality == false)) {
+				currentHealth -= damage_cube;
+			}
 		}
 	}
 }

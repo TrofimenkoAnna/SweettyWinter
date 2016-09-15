@@ -25,10 +25,10 @@ public class Enemy_health : MonoBehaviour {
 	void OnCollisionEnter(Collision collision)
 	{
 		float damage_gun = GameObject.Find ("Menu").GetComponent<Menu_script> ().damage_gun;
-
-		if ((collision.gameObject.tag == "bullet")) {
-			Debug.Log ("Hit");
-			currentHealth -= damage_gun;
-		}
+		Bullet_script bullet_script = GameObject.Find ("Gun").GetComponent<Shoot> ().bullet_script;
+		if ((collision.gameObject.tag == "bullet") && (bullet_script.flag <= 2)) {
+			Debug.Log (bullet_script.flag);
+				currentHealth -= damage_gun;
+			}
 	}
 }

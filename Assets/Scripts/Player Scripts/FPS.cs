@@ -6,8 +6,7 @@ using UnityEngine;
 	[RequireComponent(typeof (CharacterController))]
 	public class FPS : MonoBehaviour {
 
- 		[SerializeField] private MouseLook m_MouseLook;
-
+		private MouseLook m_MouseLook = new MouseLook();
 		private Camera m_Camera;
 		private CharacterController m_CharacterController; 
 		public float speed = 16.0F;

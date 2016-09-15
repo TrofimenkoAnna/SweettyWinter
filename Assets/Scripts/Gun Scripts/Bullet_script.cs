@@ -5,12 +5,12 @@ public class Bullet_script : MonoBehaviour {
 
 	//private Vector3 acceleration = Vector3.zero;
 	//private Vector3 lastVelocity = Vector3.zero;
+	public sbyte flag = 0;
 
 	void OnCollisionEnter(Collision collision)
 	{
-		if (collision.collider) {
-			Debug.Log ("collision");
-
+		if (collision.collider)
+			flag++;
 			/*Rigidbody rb = gameObject.GetComponent<Rigidbody> ();
 			acceleration = (rb.velocity - lastVelocity) / Time.deltaTime;
 			lastVelocity = rb.velocity;
@@ -18,5 +18,4 @@ public class Bullet_script : MonoBehaviour {
 
 			Destroy (gameObject, 1);
 		}
-	}
 }

@@ -11,6 +11,7 @@ public class CloningFence : MonoBehaviour {
 		GameObject fence = GameObject.Find("fence_double");
 
 		posFence.x = 18;
+		// z == 0
 		while (posFence.x <= 200)
 		{
 			posFence.x += 18;
